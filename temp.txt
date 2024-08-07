@@ -1,0 +1,46 @@
+
+
+
+ '''
+            output featuremap of train raw_img, output ,mask
+            '''
+            # channel = 36
+            # aaa = volume.cpu().detach().numpy()
+            # aaa = np.squeeze(aaa)
+            # aaa = np.squeeze(aaa)
+            # aaa = aaa[channel]  # raw
+            # val_pred = output.cpu().detach().numpy()
+            # val_pred.astype(np.int64)
+            # val_pred = np.squeeze(val_pred)
+            # val_pred = np.squeeze(val_pred)    # output
+            # output_sigmoid = output_sigmoid.cpu().detach().numpy()
+            # output_sigmoid.astype(np.int64)
+            # output_sigmoid = np.squeeze(output_sigmoid)
+            # output_sigmoid = np.squeeze(output_sigmoid)  # output_sigmoid
+            # segmentation = segmentation.cpu().detach().numpy()
+            # segmentation.astype(int)
+            # segmentation = np.squeeze(segmentation)
+            # segmentation = np.squeeze(segmentation)
+            # train_plot_img_mask_and_real_and_change(aaa, val_pred[channel], output_sigmoid[channel], segmentation[channel], channel, loss0=1, loss1=1)
+
+
+'''
+output featuremap of valuation raw_img, output ,mask
+'''
+# channel = 36
+# aaa = volume.cpu().numpy()
+# aaa = np.squeeze(aaa)
+# aaa = np.squeeze(aaa)   # raw
+# aaa = aaa[channel]
+# val_pred = val_pred.cpu().numpy()
+# val_pred.astype(np.int64)
+# val_pred = np.squeeze(val_pred)
+# val_pred = np.squeeze(val_pred)  # output
+# pred = pred.cpu().numpy()
+# pred = np.squeeze(pred)
+# pred = np.squeeze(pred)     # output_sigmoid
+# segmentation = segmentation.cpu().numpy()
+# segmentation.astype(np.int64)
+# segmentation = np.squeeze(segmentation)
+# segmentation = np.squeeze(segmentation)  # mask
+# plot_img_mask_and_real_and_change(aaa, val_pred[channel], pred[channel], segmentation[channel], channel, loss0=1, loss1=1)

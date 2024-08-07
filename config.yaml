@@ -1,0 +1,75 @@
+---
+model: Vnet
+
+pathing:
+  pretrain: 0
+  run_name: 2024TUES
+  model_save_dir: ./result/models/
+  results_save_dir: ./results/
+  train_img_dirs:
+    - ./data/dataset-verse20training/rawdata/
+  train_mask_dirs:
+    - ./data/dataset-verse20training/derivatives/
+  val_img_dirs:
+    - ./data/dataset-verse20validation/rawdata/
+  val_mask_dirs:
+    - ./data/dataset-verse20validation/derivatives/
+  test_img_dirs:
+    - ./data/dataset-verse20test/rawdata/
+  test_mask_dirs:
+    - ./data/dataset-verse20test/derivatives/
+
+
+#  train_img_dirs:
+#    - ./data/SpineSagT2Wdataset3/train/image/
+#  train_mask_dirs:
+#    - ./data/SpineSagT2Wdataset3/train/groundtruth/
+#  val_img_dirs:
+#    - ./data/SpineSagT2Wdataset3/valid/image/
+#  val_mask_dirs:
+#    - ./data/SpineSagT2Wdataset3/valid/groundtruth/
+#  test_img_dirs:
+#    - ./data/SpineSagT2Wdataset3/valid/image/
+#  test_mask_dirs:
+#    - ./data/SpineSagT2Wdataset3/valid/groundtruth/
+
+dataset:
+  spacing: (1,1,1)
+  patch_size: (128,128,128)
+  patch_stride: (128,128,128)
+  batch_size: 1
+  resize_img: True
+  resize_dims:
+    D: 128
+    H: 128
+    W: 128
+  clamp_hu: True
+  clamp_hu_range:
+    min: 0
+    max: 255
+  random_hflip: True
+  random_hflip_probability: 0.5
+  scale_img: True
+  scale_img_range:
+    min: 0.8
+    max: 1.2
+  shuffle: True
+
+training:
+  optimizer: Adam
+  learning_rate: 0.01
+  epochs: 200
+  momentum: 0.5
+  use_scheduler: True
+  scheduler: StepLR
+  scheduler_step: 15
+  scheduler_gamma: 0.8
+  criterion: FusionLoss
+  class_weights:
+    background: 0.2
+    liver: 1.2
+    lesion: 2.2
+
+gpu:
+  use_gpu: True
+  gpu_name: cuda:0
